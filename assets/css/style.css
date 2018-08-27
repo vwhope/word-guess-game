@@ -1,0 +1,46 @@
+html {
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  
+  h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+  
+  p, li {
+    font-size: 16px;  
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+  
+  
+  html {
+    background-color: #ffffff;
+    background-image: url(../images/strawberries-alison-stevens-327711-unsplash.jpg);
+    background-size: cover;
+  }
+  
+  body {
+    width: 750px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 20px 0;  
+    color: black;
+    text-shadow: 3px 3px 1px white;
+    border: 1px solid black;
+    background-image: url(../images/wood-nicole-wilcox-715206-unsplash.jpg);
+    background-size: cover;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
+  }
