@@ -1,6 +1,7 @@
 html {
     font-size: 10px;
     font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
   }
   
   
@@ -28,7 +29,8 @@ html {
     background-color: #ffffff;
     padding: 0 20px 20px 20px;
     border: 5px solid black;
-  }
+    position: absolute;
+ }
   
   h1 {
     margin: 0;
@@ -36,11 +38,116 @@ html {
     color: black;
     text-shadow: 3px 3px 1px white;
     border: 1px solid black;
-    background-image: url(../images/wood-nicole-wilcox-715206-unsplash.jpg);
+    background-image: url(../images/wood-nicole-wilcox-715206-unsplash_edt.jpg);
     background-size: cover;
-  }
+ }
   
-  img {
+ img {
     display: block;
     margin: 0 auto;
-  }
+ }
+
+ #containerLeft {
+      width: 60%;
+      text-align: center;
+      border: 1px solid black;
+      float: left;
+      clear: left;
+ }
+#userPressed {
+    color: green;
+    
+}
+
+ #correctLetters {
+     font-size: 20px;
+     letter-spacing: 5px;
+ }
+
+ #wrongLetters {
+     color: red;
+     letter-spacing: 5px;
+ }
+ #containerRight {
+     width: 40%;
+     border: 1px solid black;
+     float: left;
+     text-align: center;
+ }
+#winBox p {
+    font-size: 20px;
+    line-height: 12px;
+}
+#totWins {
+    font-size: 30px;
+    padding-top: 10px;
+    /* line-height: 12px; */
+}
+
+#winWord {
+    font-family: "Satisfy", cursive;
+    font-size: 35px;
+    line-height: 20px;
+    padding-top: 25px;
+}
+#winWordArea img {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+ #winText {
+     padding: 15px;
+     font-size: 12px;
+     text-align: justify;
+     line-height: 15px;
+ }
+ #directions {
+      padding-top: 20px;
+ }
+ 
+
+ .footerContainer {
+    border-top: 3px solid black;
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;  
+    font-size: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    line-height: 65px;
+    height: 50px;
+    
+    }
+    
+
+
+
+/* @media queries go here (bottom of style.css) */
+@media only screen and (max-width: 980px) {
+    body {
+      /* background-color: lightblue; */
+      width: 100%;
+    }
+        
+}
+
+@media only screen and (max-width: 768px) {
+    /* For medium screen devices */
+    body {
+      /* background-color: yellow; */
+      width: 100%;
+    }
+        
+}
+
+@media only screen and (max-width: 640px) {
+/* For small screen devices */
+    body {
+      /* background-color: green; */
+      width: 100%;
+    }
+    
+}

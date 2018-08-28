@@ -12,13 +12,47 @@
     crossorigin="anonymous">"
 <!-- include your custom styles last -->       
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ <!-- include custom google fonts (Great Vibes, Satisfy, Cookie -->       
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Satisfy" rel="stylesheet">
     <title>Word Guess Game</title>
 </head>
 <body>
 <header><h1>Default Header</h1></header>
 
+<div id="containerLeft">
+    <div id="directions">
+        <p><strong>HINT: </strong>The words are items you might find<BR>at a Farmer's Market</p>
+        <p id="userPressed"><strong>Press a letter key to guess that letter</strong></p>    
+    </div>
+    <div id="updateArea">
+        <p><br><strong>Current Word</strong></p>
+        <p id="correctLetters"><strong>_ _ A _ _ _ _</strong></p>
+        <p><br><strong>Letters Already Guessed</strong><br></p>
+        <p id="wrongLetters">CAPS</p>
+        <p>Guesses Remaining</p>
+        <p id="guessRemaining">5</p>
 
+    </div>
+</div> <!-- end containerLeft -->
 
+<div id="containerRight">
+    <div id="winBox">
+        <p><strong><BR>WINS!</strong></p>
+        <p id="totWins">3</p>
+    </div>
+    <div id="winWordArea"> <!-- put this div info in a rounded box -->
+        <p id="winWord">Lemons</p> <!--reverse out word inbackground color-->
+        <img src="assets/images/lemons-caroline-attwood-574690-unsplash_200.jpg" class="winImage" width=200px  alt="Winning Word Image"/>
+        
+        <p id="winText">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+             Eligendi cum reprehenderit earum? Ut voluptatum delectus dignissimos nisi quas suscipit
+             vero eligendi. Adipisci ducimus laborum laboriosam aspernatur libero sed dolor maiores!</p>
+    </div>
+</div> <!-- end containerRight -->
+
+<footer class="footerContainer">
+        Copyright &copy;
+       </footer>
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>    
 </body>
