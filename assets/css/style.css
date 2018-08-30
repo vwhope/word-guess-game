@@ -2,112 +2,118 @@ html {
     font-size: 10px;
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
-  }
-  
-  
-  h1 {
-    font-size: 60px;
-    text-align: center;
-  }
-  
-  p, li {
-    font-size: 16px;  
-    line-height: 2;
-    letter-spacing: 1px;
-  }
-  
-  
-  html {
     background-color: #ffffff;
     background-image: url(../images/strawberries-alison-stevens-327711-unsplash_edt.jpg);
     background-size: cover;
-  }
-  
-  body {
-    width: 750px;
+}
+
+body {
+    width: 650px;
     margin: 0 auto;
+    height: 100%;
     background-color: #ffffff;
-    padding: 0 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
     border: 5px solid black;
-    position: absolute;
- }
+    overflow: auto;
+    /* position: absolute; */
+}
+
+p, li {
+    font-size: 16px;  
+    line-height: 2;
+    letter-spacing: 1px;
+}
   
-  h1 {
+h1 {
+    font-size: 60px;
+    text-align: center;  
     margin: 0;
-    padding: 20px 0;  
+    padding: 20px 0px;  
     color: black;
     text-shadow: 3px 3px 1px white;
     border: 1px solid black;
+}
+  
+.headerImg {
     background-image: url(../images/wood-nicole-wilcox-715206-unsplash_edt.jpg);
     background-size: cover;
- }
-  
- img {
-    display: block;
-    margin: 0 auto;
- }
-
- #containerLeft {
-      width: 60%;
-      text-align: center;
-      border: 1px solid black;
-      float: left;
-      clear: left;
- }
-#userPressed {
-    color: green;
-    
 }
 
- #correctLetters {
-     font-size: 20px;
-     letter-spacing: 5px;
- }
+img {
+    display: block;
+    margin: 0 auto;
+}
 
- #wrongLetters {
+#containerLeft {
+    margin-top: 40px;  
+    width: 60%;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+    float: left;
+    clear: left;
+    /* position: relative; */
+}
+#directions {
+    padding-top: 20px;
+}
+
+#correctLetters {
+    color: green; 
+    font-size: 20px;
+     letter-spacing: 5px;
+}
+
+#wrongLetters {
      color: red;
      letter-spacing: 5px;
- }
- #containerRight {
-     width: 40%;
-     border: 1px solid black;
-     float: left;
-     text-align: center;
- }
+}
+
 #winBox p {
     font-size: 20px;
     line-height: 12px;
 }
+
 #totWins {
     font-size: 30px;
     padding-top: 10px;
+    padding-bottom: 40px;
     /* line-height: 12px; */
+}
+
+#containerRight {
+    margin-top: 40px; 
+    width: 40%;
+    border: 1px solid black;
+    float: left;
+    text-align: center;
+    background-color: #ffffff;
+    /* position: relative; */
 }
 
 #winWord {
     font-family: "Satisfy", cursive;
     font-size: 35px;
     line-height: 20px;
-    padding-top: 25px;
-}
-#winWordArea img {
-    border: 1px solid black;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
- #winText {
-     padding: 15px;
+#winWordArea img {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+#winText {
+     padding: 20px;
      font-size: 12px;
      text-align: justify;
      line-height: 15px;
- }
- #directions {
-      padding-top: 20px;
- }
- 
+}
 
- .footerContainer {
+
+.footerContainer {
     border-top: 3px solid black;
     width: 100%;
     background-color: #ffffff;
@@ -120,10 +126,7 @@ html {
     line-height: 65px;
     height: 50px;
     
-    }
-    
-
-
+}
 
 /* @media queries go here (bottom of style.css) */
 @media only screen and (max-width: 980px) {
@@ -131,7 +134,7 @@ html {
       /* background-color: lightblue; */
       width: 100%;
     }
-        
+
 }
 
 @media only screen and (max-width: 768px) {

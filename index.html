@@ -12,41 +12,42 @@
     crossorigin="anonymous">"
 <!-- include your custom styles last -->       
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
- <!-- include custom google fonts (Great Vibes, Satisfy, Cookie -->       
+<!-- include custom google fonts (Great Vibes, Satisfy, Cookie -->       
     <link href="https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Satisfy" rel="stylesheet">
     <title>Word Guess Game</title>
+<!-- include jquery file to access jQuery library of functions -->           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<header><h1>Default Header</h1></header>
+
+<header class="headerImg"><h1>Default Header</h1></header>
 
 <div id="containerLeft">
     <div id="directions">
         <p><strong>HINT: </strong>The words are items you might find<BR>at a Farmer's Market</p>
-        <p id="userPressed"><strong>Press a letter key to guess that letter</strong></p>    
+        <p><strong>Press a letter key to guess that letter</strong></p>    
     </div>
     <div id="updateArea">
         <p><br><strong>Current Word</strong></p>
-        <p id="correctLetters"><strong>_ _ A _ _ _ _</strong></p>
+        <p id="correctLetters">_ _ A _ _ _ _</p>
         <p><br><strong>Letters Already Guessed</strong><br></p>
         <p id="wrongLetters">CAPS</p>
         <p>Guesses Remaining</p>
-        <p id="guessRemaining">5</p>
-
-    </div>
+        <p id="guessRemain">5</p>
+        <div id="winBox">
+            <p><strong><BR>WINS!</strong></p>
+            <p id="totWins">0</p>
+        </div>
+    </div> <!-- end updateArea -->
 </div> <!-- end containerLeft -->
 
 <div id="containerRight">
-    <div id="winBox">
-        <p><strong><BR>WINS!</strong></p>
-        <p id="totWins">3</p>
-    </div>
+    
     <div id="winWordArea"> <!-- put this div info in a rounded box -->
-        <p id="winWord">Lemons</p> <!--reverse out word inbackground color-->
-        <img src="assets/images/lemons-caroline-attwood-574690-unsplash_200.jpg" class="winImage" width=200px  alt="Winning Word Image"/>
-        
-        <p id="winText">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-             Eligendi cum reprehenderit earum? Ut voluptatum delectus dignissimos nisi quas suscipit
-             vero eligendi. Adipisci ducimus laborum laboriosam aspernatur libero sed dolor maiores!</p>
+        <p id="winWord">Welcome</p> <!--reverse out word inbackground color-->
+        <img src="assets/images/publicmarket-christian-walker-726810-unsplash.jpg" class="winImage" width=200px  alt="New Game Image"/>
+        <p id="winText">After a WIN, find information here about your winning word. <br><br> Have fun playing and Good Luck! 
+        </p>
     </div>
 </div> <!-- end containerRight -->
 
