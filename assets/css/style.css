@@ -152,5 +152,12 @@ img {
       /* background-color: green; */
       width: 100%;
     }
+
+    img {
+        width: 100%;
+    }
     
+    winWord {
+        width: 100%;
+    }
 }
