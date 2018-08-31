@@ -37,6 +37,7 @@ h1 {
 .headerImg {
     background-image: url(../images/wood-nicole-wilcox-715206-unsplash_edt.jpg);
     background-size: cover;
+    margin-top: 20px;
 }
 
 img {
@@ -48,8 +49,8 @@ img {
     margin-top: 40px;  
     width: 60%;
     text-align: center;
-    background-color: #ffffff;
-    border: 1px solid black;
+    /* background-color: #ffffff; */
+    /* border: 1px solid black; */
     float: left;
     clear: left;
     /* position: relative; */
@@ -84,10 +85,10 @@ img {
 #containerRight {
     margin-top: 40px; 
     width: 40%;
-    border: 1px solid black;
+    border-left: 1px solid black;
     float: left;
     text-align: center;
-    background-color: #ffffff;
+    background-color:lightgrey;
     /* position: relative; */
 }
 

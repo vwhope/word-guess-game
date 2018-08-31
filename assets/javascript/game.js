@@ -1,16 +1,13 @@
 // Javascript for Word-Guess-Game
 //
-// note to self - do this without jQuery first, then again with jQuery to understand the difference
-//
-// there are random food(fruit) generators, but don't know how I would link to my photo, sound, etc.
-// I would have to have those objects for every possible word the generator might select so am not trying to use a generator yet
+// TODO: do this without jQuery first, then later try with jQuery to understand the difference
 //
 // First two lines below are just a test to be sure I have .js file linked correctly
-// note to self - remove this before submission and type the correct heading in the HTML file
+// TODO: remove these 2 lines before submission and type the correct heading in the HTML file
 var  myHeading = document.querySelector("h1");
 myHeading.textContent = "Word-Guess Game";
 
-// set Global variables
+// set GLOBAL variables - available to all functions
 
 // for winWordArea - crt individual arrays, then link to master array so can use the same index number
 // to access sub array element:
@@ -24,18 +21,9 @@ masterArray[0] = wordList;
 masterArray[1] = winImage;
 masterArray[2] = winText;
 masterArray[3] = winSound;
-
-// keep in case I need - but I should be able to get these programmatically!
-// var char1 = ["l", "e", "m", "o", "n", "s"];
-// var char2 = ["b", "l", "u", "e", "b", "e", "r", "r", "i", "e", "s"];
-// var char3 = ["c", "h", "e", "r", "r", "i", "e", "s"];
-// var word1 = ["lemons"]
-
-// or could create an object for each word, but I will have to know what words are in the game instead of using a random generator
-// access like this: lemon[name] - holds the string "lemon" 
-// can also access with dot notation if property has no spaces:  lemon.name
-// which way? quotes or no quotes around property name - saw it both ways in class examples????
-
+// alternatively and more generically I could create an object named "word" with properties (name, image, text, sound)
+// those values would have to be passed into the object as variables?
+// below the object is hard-coded for each word in list - not as generic as above idea - is more generic best?
 var lemon = {
     name: "lemon",
     image: "../images.lemons.jpg",
@@ -57,7 +45,7 @@ var cherries = {
     "sound": "../sound.cherries.mp3",
 }
 
-// should the game itself be an object? what would its properties be? functions
+// BONUS: only if time permits   if I can make the game itself be an object - do last if time
 //
 var userGuess = " ";
 var totWins =  0;
@@ -67,79 +55,100 @@ var newGame = true; //this is for the very first word
 var nextGame = false; // this is for each new word after the first word until i >= wordList.length
 var winGame = false; // only set to true if correctLetters = gameWord AND guessRemain !== 0
 var userKey; // this will hold the value of the key the user pressed
-var correctWord = []; // an array to build the string that will be sent to ID correctLetters 
-var wrongWord = []; // an array to build the string that will be sent to ID wrongLetters
+var correctWord = []; // an array to build the string that will be sent to ID correctLetters .innerHTML
+var wrongWord = []; // an array to build the string that will be sent to ID wrongLetters .innerHTML
+var totWords = wordList.length; // max # words the player can guess without repeating words - may not need
 
-// totWords is the maximum number of games the player can guess without repeating words - may not need
-var totWords = wordList.length;
-console.log(totWords);
+// ================================ END OF GLOBAL VARIABLE DEFINITIONS =========================================================
 
-// function for starting a new game - I think I need to pass two boolean variables into it - newGame and nextGame 
-// function startGame(boolean, boolean) { // the end curly braces must go at the end of the function - but not sure where that is yet
-// Beginning of a new Game - word 1 - reset all variables, set to first word in array: wordList[0] 
-if (newGame === true && nextGame === false) {
-  
-    //for each newGame:
-   // set gameWord to wordList[0], for each nextGame increase index by 1 (i++), at last array element no words left = endGame
-   // put the letters of the word into an array ?
-    var gameWord = wordList[0]; // by doing this, have I made gameWord an array? it is acting like an array?
-    console.log(gameWord);
-    console.log(gameWord.length);
-    console.log(gameWord[3]); // test to see if could get specific character in the string - I did
+// ================================ Begin functions that will be called to execute the game ====================================
+   // for each newGame:
+   // get random word from array wordList
+   // put the letters of the word into an array gameWordArr
+   // put underscores in holding array for each letter of the randomly selected word
+   // reset remaining guesses to new word length + 1
+
+function gameSetup() {
+   
+    var gameWord = wordList[Math.floor(Math.random() * wordList.length)]; // get a random word from list of words
+    var gameWordArr = gameWord.split(""); //by not having any spaces between the quotes - an array of letters is created from random word
+    var spaceholdArr = [];
     
-    // set remaining guesses value to length of word plus 1, update screen - this is before user presses any key
+    for (var i = 0; i < gameWordArr.length; i++) { // write underscores for each letter of the randomly selected word
+        spaceholdArr[i] = "_"; // now has an underscore for each letter of the randomly selected word
+    }
+    document.getElementById("correctLetters").innerHTML = spaceholdArr.join(""); // join makes array into a string, this sets screen to correct number of letters for random word
+    
+    // set guessRemain to length of word plus 1, update DOM - all done BEFORE user presses any key
     var guessRemain  = document.getElementById("guessRemain");
     guessRemain.textContent = gameWord.length +1;
     guessRemaining = guessRemain.textContent;
-    
-    // set initial correctLetters value to underscore for each letter in the first word
-    var screenLetters = document.getElementById("correctLetters");
-    screenLetters.textContent = " ";
-    console.log(screenLetters);
-    
-    for (var i = 0; i < gameWord.length; i++) {
-       screenLetters.textContent = "_" + screenLetters.textContent;
-    }
-    console.log(screenLetters.textContent);
-    console.log(correctLetters);
-    console.log(correctLetters.textContent);
 
-    // set "Letters Already Guessed" to blank
-    var badLetters = document.getElementById("wrongLetters");
-    badLetters.textContent = " ";
+  } 
+   // User is now playing game - pressing a letter key 
+   // get user letter
+   // compare user letterput the letters of the word into an array gameWordArr
+   // put underscores in holding array for each letter of the randomly selected word
+   // reset remaining guesses to new word length + 1
 
-   // get the key the user pressed
-   
-   document.onkeyup = function(event) {
-    userKey = event.key;  
-    console.log(userKey); // is it okay to put this inside the function? or should it go after the curly braces?
-   };
+  function gamePlay() {
 
-//!!!!why is the code below executing BEFORE the user presses a key????? And NOT executing after pressing key???   
-// at this point I have the userKey and the gameWord for newGame, but need to loop to compare each new letter try
-// I will make this a function eventually (function compareLetter())
-// compare Letter by Letter
-   for (var i = 0; i < gameWord.length; i++) {
-        if (userKey === gameWord[i]) {
-            console.log(gameWord[i]);
-            correctWord[i] = gameWord[i];
-            console.log(correctWord[i]);
+ // 1. get the key the user pressed, using its keyCode verify that it is a LETTER key, change to lower case
+    document.onkeyup = function(event) {
+        
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            userKey = event.key;
+            userKey = userKey.toLowerCase();
+          
         } else {
-           // put user's guessed letter into the wrongWord array at that index
-            wrongWord[i] = gameWord[i];
-            console.log(wrongWord);
-           // convert the letter to Upper Case for proper display 
-            wrongWord[i].toUpperCase();
-            console.log(wrongWord);
-           // put an underscore at that index in the correct word because they did not guees the correct letter
-            correctWord[i] = "_";
-            console.log(correctWord);
-            // decrement the number of remaining guesses by 1 ** issue here is guessRemaining is not a number??
-            guessRemaining - 1;
-            console.log(guessRemaining);
-        }
-    } //end of for loop
+            // i probably need to add code here to create a new div in the HTML to display the error message
+            // not sure if can continue game at this point or not?
+            alert("please click a letter");
+               }
+    }; 
+    
+ // 2. the user has NOW pressed a key - so decrement the guesses remaining by one, update DOM with new value   
+    guessRemaining--;
+    document.getElementById("guessRemain").textContent = guessRemaining;
+    
+ // 3. compare the letter key pressed to each letter of the the randomly selected game word to see if a match   
+        for (var i = 0; i < gameWord.length; i++) {
+            if (userKey === gameWord[i]) {
+                
+                correctWord[i] = gameWord[i];
+                
+            } else {
+               // put user's guessed letter into the wrongWord array at that index
+                wrongWord[i] = gameWord[i];
+                console.log(wrongWord);
+               // convert the letter to Upper Case for proper display 
+                wrongWord[i].toUpperCase();
+                console.log(wrongWord);
+               // put an underscore at that index in the correct word because they did not guees the correct letter
+                correctWord[i] = "_";
+                console.log(correctWord);
+                // decrement the number of remaining guesses by 1 ** issue here is guessRemaining is not a number??
+               
+            }
+        }; //end of for loop
+    }
 
+ 
+  
+// ================================ End define functions to be called in the game =====================================================
+
+// ================================ Begin (what could be an object if you make it one) execution of all the game functions ============
+
+
+if (newGame === true && nextGame === false) { // this is global - may not need this if statement if the game just continues on and on
+  gameSetup();
+  gamePlay();
+  
+     
+} // end of the Beginning IF statement for newGame
+
+
+  
 // at this point I have:
 // - compared the userKey to all letters in gameWord
 // - built the strings for wrongWord and correctWord based on their first letter guess
@@ -155,7 +164,7 @@ if (newGame === true && nextGame === false) {
 // -   also need onclick event so when user clicks on image the sound is played - add onclick to img in HTML
 
 
-} // end of the Beginning IF statement for newGame
+ 
    
     //?? at correct point? need to update these flags so know if it is first game or new round   
     // var newGame = false;
@@ -184,29 +193,7 @@ else {
 
 //  Error checking to add once game is working
 //  1. what to do if user presses the same key twice - don't run anything
-//  2. if user presses a key that is not a letter ( number or other key) - send message "Press a letter key"
-//  3. probably need a check user key function to check valid key and change to lower case
-//     var validUserKey = {
-        if (userGuess)
-alert("you pressed: " + userGuess);
-    //     if (userGuess !== "a through z") {
-    //         //send error message - a letter key was not selected
-    //     }
+//  
+//  
 
-
-
-
-
-// Run the following function whenever a key is pressed/released
-             // get the name of the key and put in var userKey.
-             // then be sure the key name is in lower case for accurate comparison to computer guess
-
-            
-            //  document.onkeyup = function(event) {
-            //     userGuess.textContent = event.key;
-            //     userGuess = userKey.textContent.toLowerCase();
-            //     console.log(userGuess);
-            //  }; 
-            //     
- 
-                
+               
