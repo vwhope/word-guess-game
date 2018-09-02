@@ -85,18 +85,20 @@ img {
 #containerRight {
     margin-top: 40px; 
     width: 40%;
-    border-left: 1px solid black;
+    /* border-left: 1px solid black; */
     float: left;
     text-align: center;
-    background-color:lightgrey;
-    /* position: relative; */
+    
+    
 }
 
 #winWord {
     font-family: "Satisfy", cursive;
-    font-size: 35px;
-    line-height: 20px;
-    padding-top: 50px;
+    font-size: 40px;
+    line-height: 25px;
+    color: #ffffff;
+    background-color: black;
+    padding-top: 30px;
     padding-bottom: 30px;
 }
 
@@ -104,6 +106,7 @@ img {
     border: 1px solid black;
     margin-bottom: 20px;
     margin-top: 15px;
+   
 }
 
 #winText {
@@ -111,6 +114,7 @@ img {
      font-size: 12px;
      text-align: justify;
      line-height: 15px;
+     background-color: #f8f9fa;
 }
 
 

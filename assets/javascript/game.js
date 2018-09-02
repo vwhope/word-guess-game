@@ -13,7 +13,7 @@ myHeading.textContent = "Word-Guess Game";
 // for winWordArea - for now, crt individual arrays, then link to master array so can use the same index number, later crt object
 // to access sub array element: masterArray[# of subArray ex. 0 is wordList] [index of element in subArray ex. 0 is lemons]
 var wordList = ["lemons", "blueberries", "cherries"];
-var winImage = ["../images/lemons.jpg", "../images/blueberries.jpg", "../images/cherries.jpg"];
+var winImage = ["C:/Users/Vicki/repositories/word-guess-game/assets/images/lemons-caroline-attwood-574690-unsplash_200.jpg", "C:/Users/Vicki/repositories/word-guess-game/assets/images/blueberries-jeremy-ricketts-11154-unsplash_edt.jpg", "C:/Users/Vicki/repositories/word-guess-game/assets/images/cherries-thomas-quaritsch-700308-unsplash.jpg"];
 var winText = ["text about lemons", "text about blueberries", "text about cherries"];
 var winSound = ["../audio/lemons.mp3","../audio/blueberries.mp3","../audio/cherries.mp3"];
 var masterArray = new Array ();
@@ -75,7 +75,7 @@ var gameWordArr = [];
 
 // ================================ END OF GLOBAL VARIABLE DEFINITIONS =========================================================
 
-// ================================ BEGIN functions that will be invoked to execute the game ===================================
+// ================================ BEGIN FUNCTIONS that will be invoked to execute the game ===================================
 // Do ONCE after HTML page loads (later if time, add button to start new game and then on.click invoke this function)
 // randomly select a word from global array: wordList
 // put the letters of the selected random word into array: gameWordArr
@@ -112,7 +112,7 @@ function gameSetup() {
     console.log(correctWordArr.join(""));
     
     
-} // end gameSetup function - THIS IS WORKING CORRECTLY NOW!
+} // END gameSetup function
 
 
 // perform gamePlay() ANYTIME the registered event handler receives an onkeyup event - user has pressed/released a key
@@ -180,7 +180,7 @@ if (event.keyCode >= 65 && event.keyCode <= 90) {
 
 // may include this in gamePlay - instead of separate functions - unless code gets too big and need to separate out for readability
 
-// check status - did you win, lose or still playing the game?
+// check status - WIN, LOSE or still playing?
 if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
     console.log("WIN!")
     totWins++; // add 1 to Win Total
@@ -188,12 +188,15 @@ if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
     document.getElementById("message").innerHTML = "You WIN!. You have a new word. Press any letter key to start";
     console.log("WINNER!"); // if time permits display winning word, image, text, and play sound if click image
     winGame = true;
-    gameSetup();
+
+    gameWin();
+   // gameSetup();
 
 } else  if (guessRemaining === 0 && correctWordArr.join("") !== gameWord) {
     console.log("LOSE!")
     document.getElementById("message").innerHTML = "Sorry, you lose. For new word, press any letter key to start";
     winGame = false;
+    
     gameSetup();
 }
 else { // you are still playing the game
@@ -201,7 +204,35 @@ else { // you are still playing the game
 }   
 
 console.log("gamePlay function complete for this letter pressed");
-} // end gamePlay function
+
+} // END gamePlay function
+
+
+  // BEGIN gameWin  function
+function gameWin() { 
+  
+    // get the winning word and put on the HTML page
+   document.getElementById("winWord").innerHTML = gameWord;
+    
+   // get index number of the winning word in the wordList array
+    var iNumber = wordList.indexOf(gameWord);
+    console.log(iNumber);
+
+  // use that index number to get the additional data (image, text, sound) for the winning word
+
+   
+  // var currImgSrc = document.getElementById("winImage").src;  // = winImage[iNumber]; 
+  document.getElementById("winImage").src = winImage[iNumber];
+   
+  console.log(winImage[iNumber]);   
+    
+    document.getElementById("winText").innerHTML = winText[iNumber];  
+
+} // END gameWin function
+
+
+
+
 
 // ================================ End function definitions  =========================================================================
 
