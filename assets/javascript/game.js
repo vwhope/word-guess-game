@@ -96,16 +96,21 @@ function gameSetup() {
     document.getElementById("correctLetters").innerHTML = correctWordArr.join(""); // join makes array into a string, this sets screen to correct number of letters for random word
     
     // output blanks to Letters Already Guessed (remove letters after you know this works)
-    document.getElementById("wrongLetters").innerHTML = "in the right place ";
-
+    document.getElementById("wrongLetters").innerHTML = " ";
+    wrongWordArr = [];
+    
     // set guessRemain to length of word plus 1, update DOM - all done AFTER HTML page loads and BEFORE user presses any key
-    var guessRemain  = document.getElementById("guessRemain");
+    guessRemain  = document.getElementById("guessRemain");
     guessRemain.textContent = gameWord.length +1;
     guessRemaining = guessRemain.textContent;
+    // the guessRemain and guessRemaning values disappear each time the user presses a key
+    console.log(guessRemaining); // this holds the correct number without p tag stuff
+    console.log(guessRemain); //this is the whole p tag element
     console.log(gameWord);
     console.log(gameWordArr);
     console.log(correctWordArr);
     console.log(correctWordArr.join(""));
+    
     
 } // end gameSetup function - THIS IS WORKING CORRECTLY NOW!
 
@@ -119,72 +124,83 @@ function gameSetup() {
 // function gamePlay ONLY runs when user has pressed/released a key!
 
 function gamePlay(event) { // here am passing the input from event which includes ".key" (js engine handler has this info)
-    // be sure key pressed is a letter key before continuing (https://css-tricks.com/snippets/javascript/javascript-keycodes/)
-    if (event.keyCode >= 65 && event.keyCode <= 90) {
-        userKey = event.key;
-        userKey = userKey.toLowerCase();
+console.log(guessRemain); // has correct INITIAL value gameWord.length - 1, from gameSetup() and is already displayed on the screen - somewhere somehow it gets set to 0! WHERE?
+console.log(guessRemaining); // this is the nbr I want and it is correct the first time through after gameSetup() as well
+// every time you run this function guessRemaining is a 0
+// be sure key pressed is a letter key before continuing (https://css-tricks.com/snippets/javascript/javascript-keycodes/)
+if (event.keyCode >= 65 && event.keyCode <= 90) {
+    userKey = event.key;
+    userKey = userKey.toLowerCase();
+    console.log(userKey);
+    
+    // reset error message in case user previously selected a non-letter key
+    document.getElementById("message").innerHTML = "Press a letter key to guess again."; 
+    
+    // if userKey IN gameWord array, add the letter to correctWord arr at that index
+    for (var i = 0; i < gameWord.length; i++) {
+        if (userKey === gameWord[i]) {
+            correctWordArr[i] = gameWord[i];
+        } 
+    };   
+    
+    // if userKey NOT in gameWord array, AND not already in the wrongWordArr
+    //    add the UPPERCASE letter to wrongLetterArr, decrement guessRemaining               
+    var inWord = gameWord.includes(userKey);
+    var wrongWord = wrongWordArr.join("");
+    wrongWord = wrongWord.toLowerCase();
+    var inWrong = wrongWord.includes(userKey);
+    if (inWord === false && inWrong === false) {
+        userKey = userKey.toUpperCase(); // change userKey to uppercase and add to wrongWordArr
+        console.log(userKey);
+        wrongWordArr.push(userKey); // 
+        console.log(wrongWordArr);
+        userKey = userKey.toLowerCase(); // change userKey back to lowercase
         console.log(userKey);
         
-       // reset error message in case user previously selected a non-letter key
-       document.getElementById("message").innerHTML = "Press a letter key to guess again."; 
-
-        // the user has NOW pressed a letter key so we have to first find out - did they win or lose?  
-        
-        document.getElementById("guessRemain").textContent = guessRemaining;
-        if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
-            winGame = true;
-            totWin++;
-
-            gameSetup() // this means the user has stops this game, resets guessRemaining and gets a new word
-        }
-        
-        // 2. if userKey is in gameWord array, add the letter to correctWord arr at that index
-        
-        for (var i = 0; i < gameWord.length; i++) {
-            if (userKey === gameWord[i]) {
-                correctWordArr[i] = gameWord[i];
-            } 
-        };   
-        // 3. if userKey is not in gameWord array, add the UPPERCASE letter to wrongLetter, decrement guessRemaining               
-        
-        var match = gameWord.includes(userKey);
-        // if letter not in word, chg userKey toUpperCase and add to wrongWord which has letters that do not match word
-        if (match === false) {
-            //    wrongWordArr = wrongWordArr + userKey.toUpperCase(); // need more accurate way to do this - append or iterate through for first blank
-            guessRemaining--;
-        };               
-        
-        // 4. display correct letters and wrong letters to viewport (HTML)       /there is nothing in this
-        document.getElementById("correctLetters").innerHTML = correctWordArr.join("");
+        // having problem with decrementing guessRemaining from guessRemain.textContent again because - setup only runs ONCE at load of HTML page so have to get it again
+        // lose value each time gamePlay is run  - value is not held anywhere - HTML 
+        guessRemain  = document.getElementById("guessRemain"); 
+        guessRemain = parseInt(guessRemain.textContent);
+        guessRemaining = guessRemain -1;
+        console.log(guessRemaining);
+        document.getElementById("guessRemain").innerHTML = guessRemaining;
         document.getElementById("wrongLetters").innerHTML = wrongWordArr.join("");
-        
-        
-        // do I need to store userKey in a variable previousKey to check if user pressed the same key again?
-      // if key pressed is NOT a letter key - send message  
-    } else {
-        document.getElementById("message").innerHTML = "Sorry, you must press a letter key.";
-    }
+    };               
+    
+    // display correct letters and wrong letters to viewport (HTML page)  
+    document.getElementById("correctLetters").innerHTML = correctWordArr.join("");
+   
+    
+    
+    // ???? do I need to store userKey in a variable previousKey to check if user pressed the same key again?
+    // if key pressed is NOT a letter key - send error message  
+} else {
+    document.getElementById("message").innerHTML = "Sorry, you must press a letter key.";
+}
 
 // may include this in gamePlay - instead of separate functions - unless code gets too big and need to separate out for readability
 
-    // check status - did you win, lose or still playing the game?
-    if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
-        console.log("WIN!")
-        totWins++; // add 1 to Win Total
-        document.getElementById("totWins").innerHTML = totWins;
-        document.getElementById("message").innerHTML = "Congratulations - You WON!. For new word, press any letter key to start";
-        console.log("WINNER!"); // if time permits display winning word, image, text, and play sound if click image
-        winGame = true;
-    } else  if (guessRemaining = 0 && correctWordArr.join("") !== gameWord) {
-        console.log("LOSE!")
-        document.getElementById("message").innerHTML = "Sorry, you lose. For new word, press any letter key to start";
-        winGame = false;
-    }
-    else { // you are still playing the game
-        console.log("still playing");
-    }   
-    
-    console.log("gamePlay function complete for this letter pressed");
+// check status - did you win, lose or still playing the game?
+if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
+    console.log("WIN!")
+    totWins++; // add 1 to Win Total
+    document.getElementById("totWins").innerHTML = totWins;
+    document.getElementById("message").innerHTML = "You WIN!. You have a new word. Press any letter key to start";
+    console.log("WINNER!"); // if time permits display winning word, image, text, and play sound if click image
+    winGame = true;
+    gameSetup();
+
+} else  if (guessRemaining === 0 && correctWordArr.join("") !== gameWord) {
+    console.log("LOSE!")
+    document.getElementById("message").innerHTML = "Sorry, you lose. For new word, press any letter key to start";
+    winGame = false;
+    gameSetup();
+}
+else { // you are still playing the game
+    console.log("still playing");
+}   
+
+console.log("gamePlay function complete for this letter pressed");
 } // end gamePlay function
 
 // ================================ End function definitions  =========================================================================
