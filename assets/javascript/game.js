@@ -13,8 +13,8 @@ myHeading.textContent = "Word-Guess Game";
 // for winWordArea - for now, crt individual arrays, then link to master array so can use the same index number, later crt object
 // to access sub array element: masterArray[# of subArray ex. 0 is wordList] [index of element in subArray ex. 0 is lemons]
 var wordList = ["lemons", "blueberries", "cherries"];
-var winImage = ["C:/Users/Vicki/repositories/word-guess-game/assets/images/lemons-caroline-attwood-574690-unsplash_200.jpg", "C:/Users/Vicki/repositories/word-guess-game/assets/images/blueberries-jeremy-ricketts-11154-unsplash_edt.jpg", "C:/Users/Vicki/repositories/word-guess-game/assets/images/cherries-thomas-quaritsch-700308-unsplash.jpg"];
-var winText = ["text about lemons", "text about blueberries", "text about cherries"];
+var winImage = ["assets/images/lemons-caroline-attwood-574690-unsplash_200.jpg", "assets/images/blueberries-jeremy-ricketts-11154-unsplash_edt.jpg", "assets/images/cherries-thomas-quaritsch-700308-unsplash.jpg"];
+var winText = ["Lemons contain a high amount of vitamin C, citric acid, and soluble fiber which may help prevent kidney stones as well as increase absorption of iron from plant foods.", "Blueberries are a good source of vitamin C, vitamin K and fiber. Fiber is important in reducing cholesterol, which may reduce the risk of heart disease.", "Cherries are a good source of potassium, which may help lower blood pressure. They also contain beta-carotine, vitamin C, anthocyanins and quercetin which may help prevent/fight cancer."];
 var winSound = ["../audio/lemons.mp3","../audio/blueberries.mp3","../audio/cherries.mp3"];
 var masterArray = new Array ();
 masterArray[0] = wordList;
@@ -190,7 +190,8 @@ if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
     winGame = true;
 
     gameWin();
-   // gameSetup();
+    // setTimeout(gameSetup, 30000);
+    gameSetup();
 
 } else  if (guessRemaining === 0 && correctWordArr.join("") !== gameWord) {
     console.log("LOSE!")

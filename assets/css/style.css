@@ -49,20 +49,22 @@ img {
     margin-top: 40px;  
     width: 60%;
     text-align: center;
-    /* background-color: #ffffff; */
-    /* border: 1px solid black; */
     float: left;
     clear: left;
-    /* position: relative; */
+    
 }
 #directions {
-    padding-top: 20px;
+    padding-top: 10px;
+}
+
+#hint {
+    font-size: 12px;
 }
 
 #correctLetters {
     color: green; 
     font-size: 20px;
-     letter-spacing: 5px;
+    letter-spacing: 5px;
 }
 
 #wrongLetters {
@@ -79,17 +81,13 @@ img {
     font-size: 30px;
     padding-top: 10px;
     padding-bottom: 40px;
-    /* line-height: 12px; */
 }
 
 #containerRight {
     margin-top: 40px; 
     width: 40%;
-    /* border-left: 1px solid black; */
     float: left;
     text-align: center;
-    
-    
 }
 
 #winWord {
@@ -106,15 +104,16 @@ img {
     border: 1px solid black;
     margin-bottom: 20px;
     margin-top: 15px;
-   
 }
 
 #winText {
      padding: 20px;
      font-size: 12px;
      text-align: justify;
-     line-height: 15px;
+     line-height: 20px;
      background-color: #f8f9fa;
+     box-shadow: 5px 10px #888888;
+     border: 1px solid black;
 }
 
 

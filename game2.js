@@ -116,7 +116,7 @@
         screenLetters.textContent = "_" + screenLetters.textContent;
     }
     
-    // set "Letters Already Guessed" to blank
+    // set "Letters Already Guessed" to blank  
     var badLetters = document.getElementById("wrongLetters");
     badLetters.textContent = " ";
     
