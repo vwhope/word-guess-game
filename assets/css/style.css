@@ -134,27 +134,27 @@ img {
 
 /* @media queries go here (bottom of style.css) */
 @media only screen and (max-width: 980px) {
-    body {
+    div.wrapper {
       /* background-color: lightblue; */
-      width: 100%;
+      width: 85%;
     }
 
 }
 
 @media only screen and (max-width: 768px) {
     /* For medium screen devices */
-    body {
+    div.wrapper {
       /* background-color: yellow; */
-      width: 100%;
+      width: 85%;
     }
         
 }
 
 @media only screen and (max-width: 640px) {
 /* For small screen devices */
-    body {
+    div.wrapper {
       /* background-color: green; */
-      width: 100%;
+      width: 80%;
     }
 
     img {
