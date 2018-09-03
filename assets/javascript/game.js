@@ -1,9 +1,7 @@
 // Javascript for Word-Guess-Game
 //
-// TODO: do this without jQuery first, then later try with jQuery to understand the difference
-//
 // First two lines below are just a test to be sure I have .js file linked correctly
-// TODO: remove these 2 lines before submission and type the correct heading in the HTML file
+// TODO: you can remove these 2 lines before submission and type the correct heading in the HTML file
 var  myHeading = document.querySelector("h1");
 myHeading.textContent = "Word-Guess Game";
 
@@ -229,20 +227,13 @@ function gameWin() {
     
 } // END gameWin function
 
-
-
-
-
-
-
-
 // ================================ End function definitions  =========================================================================
 
 // ================================ BEGIN GAME (GAME could be an object if you make it one) execution of all the game functions =======
 // Once HTML page loads - perform these two steps! OMG it only ended up needing 2 steps! This part blows my mind and is not how I understood a program to function!
 
 gameSetup();  // AFTER HTML page loads - this will run FIRST and ONLY ONCE, unless code invokes it somewhere else (when user wins/loses game to reset values/get new word)
-// gameSetup does NOT reset the WINS total - only reset that counter if (in future version) user clicks RESTART button
+// NOTE: gameSetup does NOT reset totWins - only reset that counter if (in future version) user clicks RESTART button
 
 // after function gameSetup() completes, the document.onkeyup statement runs ?? I don't think they run at the same time???
 // this statement sets/registers? a handler so that IF an onkeyup event fires - it sends a ??pointer?reference?? to the gamePlay function
@@ -252,18 +243,7 @@ gameSetup();  // AFTER HTML page loads - this will run FIRST and ONLY ONCE, unle
 // lots to understand in this simple line of code!! PLEASE let me know if I am wording or thinking about this incorrectly.
 document.onkeyup = gamePlay; // registers/sets handler - doesn't run any code
 // if there were any other lines of code after this, they would execute whether or not function gamePlay ever runs!!
-// control passes to next line of code - the "program" is NOT "waiting" on anything - it will continue to next line of code
+// control passes to next line of code - the "program flow" is NOT "waiting" on anything - it will continue to next line of code
 
 
 // END of program execution - HOWEVER document.onkeyup event is still registered handler and gamePlay will run if any key is pressed!
-
-
-
-
-
-// -   display the wordList, winImage, winText by using masterArray - IF time allows
-// -   masterArray[0] = wordList[], masterArray[1] = winImage[], etc. based on word, select correct index for subarray
-// -   also need onclick event so when user clicks on image the sound is played - add onclick to img in HTML
-
-// - don't forget to reset winWord, winImage, winText and winSound to dft for beg of game
-
