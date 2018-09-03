@@ -23,7 +23,7 @@ p, li {
     line-height: 2;
     letter-spacing: 1px;
 }
-  
+
 h1 {
     font-size: 60px;
     text-align: center;  
@@ -33,7 +33,7 @@ h1 {
     text-shadow: 3px 3px 1px white;
     border: 1px solid black;
 }
-  
+
 .headerImg {
     background-image: url(../images/wood-nicole-wilcox-715206-unsplash_edt.jpg);
     background-size: cover;
@@ -68,8 +68,8 @@ img {
 }
 
 #wrongLetters {
-     color: red;
-     letter-spacing: 5px;
+    color: red;
+    letter-spacing: 5px;
 }
 
 #winBox p {
@@ -107,15 +107,24 @@ img {
 }
 
 #winText {
-     padding: 20px;
-     font-size: 12px;
-     text-align: justify;
-     line-height: 20px;
-     background-color: #f8f9fa;
-     box-shadow: 5px 10px #888888;
-     border: 1px solid black;
+    padding: 20px;
+    font-size: 12px;
+    text-align: justify;
+    line-height: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 5px 10px #888888;
+    border: 1px solid black;
 }
 
+#findMarket {
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    float: right;
+    clear: both;
+    padding-left: 16px;
+    padding-right: 16px;
+}
 
 .footerContainer {
     border-top: 3px solid black;
@@ -135,28 +144,28 @@ img {
 /* @media queries go here (bottom of style.css) */
 @media only screen and (max-width: 980px) {
     div.wrapper {
-      /* background-color: lightblue; */
-      width: 85%;
+        /* background-color: lightblue; */
+        width: 85%;
     }
-
+    
 }
 
 @media only screen and (max-width: 768px) {
     /* For medium screen devices */
     div.wrapper {
-      /* background-color: yellow; */
-      width: 85%;
+        /* background-color: yellow; */
+        width: 85%;
     }
-        
+    
 }
 
 @media only screen and (max-width: 640px) {
-/* For small screen devices */
+    /* For small screen devices */
     div.wrapper {
-      /* background-color: green; */
-      width: 100%;
+        /* background-color: green; */
+        width: 100%;
     }  
-
+    
     img {
         width: 100%;
     } 
@@ -164,7 +173,7 @@ img {
     winWord {
         width: 100%;
     }
-
+    
     winText {
         width: 100%;
     }

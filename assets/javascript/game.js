@@ -169,7 +169,7 @@ if (event.keyCode >= 65 && event.keyCode <= 90) {
     
     // display correct letters and wrong letters to viewport (HTML page)  
     document.getElementById("correctLetters").innerHTML = correctWordArr.join("");
-   
+    
     
     
     // ???? do I need to store userKey in a variable previousKey to check if user pressed the same key again?
@@ -185,19 +185,19 @@ if (guessRemaining >= 0 && correctWordArr.join("") === gameWord) {
     console.log("WIN!")
     totWins++; // add 1 to Win Total
     document.getElementById("totWins").innerHTML = totWins;
-    document.getElementById("message").innerHTML = "You WIN! Press any letter key to start new game";
+    document.getElementById("message").innerHTML = "<p>You WIN!</p>Press any letter key to start new game";
     console.log("WINNER!"); // if time permits display winning word, image, text, and play sound if click image
     winGame = true;
-
+    // display winning word, image and text
     gameWin();
-    // setTimeout(gameSetup, 30000);
+    // setTimeout(gameSetup, 30000); did not need it
     gameSetup();
-
+    
 } else  if (guessRemaining === 0 && correctWordArr.join("") !== gameWord) {
     console.log("LOSE!")
-    document.getElementById("message").innerHTML = "Sorry, you lose. For new word, press any letter key to start";
+    document.getElementById("message").innerHTML = "<p>Sorry, you lose.</P>Try again, press any letter key to start";
     winGame = false;
-    
+    // reset game, but not Win total
     gameSetup();
 }
 else { // you are still playing the game
@@ -209,27 +209,28 @@ console.log("gamePlay function complete for this letter pressed");
 } // END gamePlay function
 
 
-  // BEGIN gameWin  function
+// BEGIN gameWin  function
 function gameWin() { 
-  
-    // get the winning word and put on the HTML page
-   document.getElementById("winWord").innerHTML = gameWord;
     
-   // get index number of the winning word in the wordList array
+    // get the winning word and put on the HTML page
+    document.getElementById("winWord").innerHTML = gameWord;
+    
+    // get index number of the winning word in the wordList array
     var iNumber = wordList.indexOf(gameWord);
     console.log(iNumber);
-
-  // use that index number to get the additional data (image, text, sound) for the winning word
-
-   
-  // var currImgSrc = document.getElementById("winImage").src;  // = winImage[iNumber]; 
-  document.getElementById("winImage").src = winImage[iNumber];
-   
-  console.log(winImage[iNumber]);   
+    
+    // use that index number to get the additional data (image, text, sound) for the winning word
+    
+    document.getElementById("winImage").src = winImage[iNumber];
+    
+    console.log(winImage[iNumber]);   
     
     document.getElementById("winText").innerHTML = winText[iNumber];  
-
+    
 } // END gameWin function
+
+
+
 
 
 

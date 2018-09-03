@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-<!-- include in case you want to use media queries -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- include to reset common attributes for cross-browser compatibility -->    
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-<!-- include IF you end up using a Bootstrap theme or classes - will help with responsive design -->       
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-<!-- include your custom styles last -->       
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<!-- include custom google fonts (Great Vibes, Satisfy, Cookie -->       
-    <link href="https://fonts.googleapis.com/css?family=Cookie|Great+Vibes|Satisfy" rel="stylesheet">
-    <title>Word Guess Game</title>
-<!-- include jquery file to access jQuery library of functions -->           
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<!-- include in case you want to use media queries -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- include to reset common attributes for cross-browser compatibility -->    
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- include IF you end up using a Bootstrap theme or classes - will help with responsive design -->       
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<!-- include your custom styles last -->       
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- include custom google fonts (Great Vibes, Satisfy, Cookie -->       
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<title>Word Guess Game</title>
+	<!-- include jquery file to access jQuery library of functions -->           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
-<div class="wrapper">
-
-	<header class="headerImg"><h1>Default Header</h1></header>
-
-	<div id="containerLeft">
+	
+	<div class="wrapper">
+		
+		<header class="headerImg"><h1>Default Header</h1></header>
+		
+		<div id="containerLeft">
 			<div id="directions">
-					<p id="hint"><strong>HINT : </strong>Words are items you might <br> find at a Farmer's Market</p>
-					<p id="message"><strong>Press a letter key to start</strong></p>    
+				<p id="hint"><strong>HINT : </strong>Words are items you might <br> find at a Farmer's Market</p>
+				<p id="message"><strong>Press a letter key to start</strong></p>    
 			</div>
 			<div id="updateArea">
-					<p><br><strong>Current Word</strong></p>
-					<p id="correctLetters">_ _ A _ _ _ _</p>
-					<p><br><strong>Letters Already Guessed</strong><br></p>
-					<p id="wrongLetters">CAPS</p>
-					<p>Guesses Remaining</p>
-					<p id="guessRemain">6</p>
-					<div id="winBox">
-							<p><strong><BR>WINS!</strong></p>
-							<p id="totWins">0</p>
+				<p><br><strong>Current Word</strong></p>
+				<p id="correctLetters">_ _ A _ _ _ _</p>
+				<p><br><strong>Letters Already Guessed</strong><br></p>
+				<p id="wrongLetters">CAPS</p>
+				<p>Guesses Remaining</p>
+				<p id="guessRemain">6</p>
+				<div id="winBox">
+					<p><strong><BR>WINS!</strong></p>
+						<p id="totWins">0</p>
 					</div>
-			</div> <!-- end updateArea -->
-	</div> <!-- end containerLeft -->
-
-	<div id="containerRight">
+				</div> <!-- end updateArea -->
+			</div> <!-- end containerLeft -->
 			
-			<div id="winWordArea"> <!-- put this div info in a rounded box -->
+			<div id="containerRight">
+				
+				<div id="winWordArea"> <!-- put this div info in a rounded box -->
 					<p id="winWord">Welcome</p> <!--reverse out word inbackground color-->
 					<img src="assets/images/publicmarket-christian-walker-726810-unsplash.jpg" class="winImage" Id="winImage" width=200px  alt="New Game Image"/>
 					<p id="winText">After a WIN, find information here about your winning word. <br><br> Have fun playing and Good Luck! 
 					</p>
-			</div>
-	</div> <!-- end containerRight -->
-<footer class="footerContainer">
-        Copyright &copy;
-       </footer>
-</div>
-
-
-    <script type="text/javascript" src="assets/javascript/game.js"></script>    
-</body>
-</html>
+				</div>
+			</div> <!-- end containerRight -->
+			<div>
+			<p><a href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="blank" id="findMarket">Find a Farmer's Market near you!</a></p>
+			</div>			
+			<footer class="footerContainer">
+				Copyright &copy;
+			</footer>
+		</div>
+		
+		
+		<script type="text/javascript" src="assets/javascript/game.js"></script>    
+	</body>
+	</html>
