@@ -1,36 +1,39 @@
 # word-guess-game
-word-guess (hangman) game
+word-guess (hangman) game - theme Farmer's Market
 
-Skills this project demonstrates:
-    This word-guess-game is the first homework assignment to include a separate JS file.
-    It demonstrates a working knowledge of:
-        using JS language
-        basic understanding of SCOPE (global vs function level vs nested)
-        ability to use an event listener
-        ability to get information from the user, evaluate that information, update DOM based on that information
-        ability to use a random generator function
+**Skills demonstrated in project:**
+    * application of JavaScript language
+    * application of CSS and reset files
+    * responsive web design
+    * use of custom fonts
+    * basic understanding of SCOPE (global vs local)
+    * register and respond to event listeners
+    * manipulation of the HTML page (get user input, evaluate input, update HTML page)
+    * use a random generator function
+    * use of website as an educational vehicle for basic nutrition education
     
-Goal of game:
-    Goal of the game is to guess the hidden word before you run out of guesses.
-    You will have 1 more guess than there are letters in the word (ex. if word is 6 characters long, you get 7 guesses)
-    The words are randomly selected from an array of words that are related to a Farmer's Market
+**Goal of game:**
+    * guess all letters in the hidden word before running out of guesses
+    * player has 1 more guess than there are letters in the word
+        * for example, if word is 6 characters long, player gets 7 guesses
+    * words are randomly selected from an array of words that are related to a Farmer's Market
 
-To run (play) the game:
-    open the index.html file in the browser
-    press any letter key to guess a letter
-    if you guess all the letters in the word before you run out of guesses you win
-    if you run out of guesses before you guess the word, you lose
-    no matter if you win or lose, a new word will be presented and the game will continue until you stop guessing
+**To run (play) the game:**
+    * open the index.html file in the browser
+    * press any letter key to guess a letter
+    * if player guesses all letters in the word before running out of guesses, player wins
+    * after a win or loss, a new word will be presented and game will continue until player stops pressing keys
 
-Resource Contributors:
-    images used were from https://unsplash.com/
-    the following photographers contributed photos:
-        Jeremy Ricketts
-        Caroline Attwood
-        Alison Stevens
-        Nicole Wilcox
-        Christian Walker
-        ja ma
-        Thomas Quaritsch
+**Resource Contributors:**
+    * Images used were from: [unsplash] (https://unsplash.com/)
+    * the following photographers contributed photos:
+        * Jeremy Ricketts - blueberries 
+        * Caroline Attwood - lemons
+        * Alison Stevens - strawberries - main background 
+        * Nicole Wilcox - wood texture - background - header
+        * Christian Walker - Public Market sign
+        * ja ma - color market (alt photo for public market sign)
+        * Thomas Quaritsch - cherries
+    * Custom font "Satisfy" from [Google fonts] (https://fonts.google.com/)
 
 
