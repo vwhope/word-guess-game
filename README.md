@@ -2,6 +2,7 @@
 
 ### theme: Farmer's Market
 Deployed Link: [word-guess-game](https://vwhope.github.io/word-guess-game/)
+
 **Skills demonstrated in project:**
 * application of JavaScript language
 * application of CSS and reset files
