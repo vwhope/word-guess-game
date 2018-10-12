@@ -7,7 +7,7 @@ Deployed Link: [word-guess-game](https://vwhope.github.io/word-guess-game/)
 * manipulate the DOM without refreshing the HTML page
 * retrieve the name of the key the user presses for validation and game play
 * keep track of letters guessed and if they were correct or not
-* display "-" for each letter of the new word to guess
+* display "_" for each letter of the new word to guess
 * randomly select word to guess
 * track guesses and wins
 
