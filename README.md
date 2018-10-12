@@ -3,7 +3,19 @@
 ### theme: Farmer's Market
 Deployed Link: [word-guess-game](https://vwhope.github.io/word-guess-game/)
 
-**Skills demonstrated in project:**
+**Problems to solve**
+* manipulate the DOM without refreshing the HTML page
+* retrieve the name of the key the user presses for validation and game play
+* keep track of letters guessed and if they were correct or not
+* display "-" for each letter of the new word to guess
+* randomly select word to guess
+* track guesses and wins
+
+**Solution**
+
+Using the window.document object properties to retrieve and update values on the HTML page directly prevents the need to refresh the page, except to start a new game. Use of event.keycode when a keyboard event fires captures the key pressed. For this game, only letters are valid keyboard entries so if value is between 65 and 90 inclusive, the key is valid. The event normalizes the value so can also retrieve the letter name, such as "a" or "A". Arrays are used to store letters guessed as well as words available to guess and also to determine the length of the word to guess. The math.random function is used to randomly select a word to guess from an array of possible words. Simple math was used to total guesses and wins.    
+
+**Technical Skills demonstrated in project:**
 * application of JavaScript language
 * application of CSS and reset files
 * responsive web design
@@ -42,6 +54,8 @@ Christian Walker | Public Market sign
 ja ma | color market (alt photo for public market sign)
 Thomas Quaritsch | cherries
 
-    
-
+**Future Enhancement Ideas:**    
+* Add audio files that contribute additional information about the word
+* Play the audio file upon guessing the word
+* Save the entire game and properties in an object
 
